@@ -272,13 +272,17 @@ public class MatrixToolbox{
 	//multiply two matrix
 	public static void multiplyMatrix(double[][][] bothMatrix){
 
-		for(int z = 0; z < 2; z++){ //move through each array
-			for(int y = 0; y < bothMatrix[z].length; y++){ //move through each array rows
-				for(int x = 0; x < bothMatrix[z][y].length; x++){ //move thorugh each array columns
-					bothMatrix[2][y][x] = bothMatrix[0][y][x] * bothMatrix[1][y][x];
+		
+		for(int y = 0; y < bothMatrix[0].length; y++){ //move through each array rows
+			for(int x = 0; x < bothMatrix[0][y].length; x++){ //move thorugh each array columns
+				for(int y2 = 0; y2 < bothMatrix[0].length; y2++){ //move through each array rows
+					bothMatrix[2][y][x] += bothMatrix[0][y][y2] * bothMatrix[1][y2][x];
 				}
 			}
 		}
+
+
+		
 
 		printMatrixes(bothMatrix, 3);
 
